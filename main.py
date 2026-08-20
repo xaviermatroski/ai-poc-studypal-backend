@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from pydantic import BaseModel
+from get_llm_response import get_answer
 
 app = FastAPI()
 
@@ -29,7 +30,7 @@ class AnswerResponse(BaseModel):
 def ask_question(request: QuestionRequest):
     # Placeholder logic for generating an answer
     # In a real application, you would integrate with an AI model or database here
-    answer = f"Working Bud."
+    answer = f"{get_answer(request.question)}"
     
     return {"answer": answer}
 

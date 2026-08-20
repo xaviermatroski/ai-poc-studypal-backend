@@ -1,0 +1,5 @@
+{
+    "llm": {
+        "groq": ["openai/gpt-oss-20b", "openai/gpt-oss-120b", "whisper-large-v3"]
+    }
+}
