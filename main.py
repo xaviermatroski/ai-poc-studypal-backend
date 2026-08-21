@@ -19,6 +19,8 @@ app.add_middleware(
 
 # Input Request Model
 class QuestionRequest(BaseModel):
+    provider: str
+    model: str
     question: str
 
 # Output Response Model
@@ -30,7 +32,7 @@ class AnswerResponse(BaseModel):
 def ask_question(request: QuestionRequest):
     # Placeholder logic for generating an answer
     # In a real application, you would integrate with an AI model or database here
-    answer = f"{get_answer(request.question)}"
+    answer = f"{get_answer(request.question, request.provider, request.model)}"
     
     return {"answer": answer}
 
